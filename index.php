@@ -64,6 +64,20 @@
 
             echo "<p>Šogad man ir/būs $vecums gadi.</p>";
             echo date("d.m.Y"); // šodienas datums
+
+            define("Pi", 3.14159); // konstantes definēšana
+            echo "<p>Definēta konstante ".Pi."</p>";
+            echo "<p>Definēta konstante ".round(Pi, 2)."</p>"; // divi cipari aiz komata
+
+            $teksts = "Es tagad mācos PHP valodu!";
+            echo var_dump($teksts); // noskaidro datu tipu
+
+            // echo strlen($teksts);
+
+            $skaitlis = 33.786556;
+            echo var_dump($skaitlis);
+
+            echo "<p>Nejaušs skaitlis: ".rand(10, 100)."</p>";
         ?>
 
     </main>
