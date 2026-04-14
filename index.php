@@ -1,4 +1,5 @@
 <?php
+    $sadala = "Ievads PHP";
     require "assets/header.php";
 ?>
 
