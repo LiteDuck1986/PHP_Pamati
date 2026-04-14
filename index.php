@@ -35,7 +35,37 @@
     </aside>
 
     <main>
+        <?php
+            echo "<p>Hello World!</p>";
+            print "<p>Sveika Pasaule!</p>"; // print labāk neizmantot
 
-</main>
+            $zinojums = "Teksts mainīgajā";
+        ?>
+
+        <p>
+            <?php echo $zinojums; ?> <!-- (1. variants) -->
+        </p>
+
+        <p>
+            <?= $zinojums; ?> <!-- (2. variants) echo saisinājums -->
+        </p>
+
+        <?php
+            // vienas rindiņas komentārs
+            $lietotajvards = "Edijs";
+            $dzim_gads = 2007;
+            $esosais_gads = date("Y"); // arī var ("d.m.Y")
+
+            echo '<p>Mans lietotājvārds: $lietotajvards</p>';
+            echo "<p>Mans lietotājvārds: $lietotajvards</p>";
+            echo '<p>Mans lietotājvārds: '.$lietotajvards.'</p>'; // konkatenācija
+
+            $vecums = $esosais_gads - $dzim_gads;
+
+            echo "<p>Šogad man ir/būs $vecums gadi.</p>";
+            echo date("d.m.Y"); // šodienas datums
+        ?>
+
+    </main>
 </body>
 </html>
