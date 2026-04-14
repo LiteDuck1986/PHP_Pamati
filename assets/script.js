@@ -9,3 +9,9 @@ menuBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     aside.classList.remove('active');
 });
+
+
+// Prevents form resubmission
+if ( window.history.replaceState ) { // novērš formas resubmission
+        window.history.replaceState( null, null, window.location.href );
+    }
