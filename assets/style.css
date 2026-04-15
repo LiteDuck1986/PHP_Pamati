@@ -76,6 +76,10 @@ main{
     padding: 2rem;
 }
 
+h1, h2, h3, h4{
+    margin: 1rem 0;
+}
+
 .btn, button{
     background: #202731;
     color: #fff;
