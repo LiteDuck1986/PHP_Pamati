@@ -11,9 +11,7 @@
 <body>
     <header>
         <i class="fa-solid fa-bars menu-toggle"></i>
-        <?php
-            echo "<p>$sadala</p>";
-        ?>
+        <p><?$sadala?></p>
         <a href="" class="btn">
             Lietotājs
             <i class="fa-solid fa-power-off"></i>
