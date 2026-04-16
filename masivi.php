@@ -124,8 +124,25 @@
 
         <h4>6.uzdevums:</h4>
         <?php
+            $draugi = array(
+                "Jonas" => 33,
+                "Krisis" => 19,
+                "Miks" => 24,
+                "Viktors" => 17,
+                "Raimonds" => 18,
+                "Jānis" => 23
+            );
 
+            // vecums no lielākā uz mazāko
+            arsort($draugi);
+
+            echo "Draugi sakārtoti pēc vecuma:<br>";
+
+            foreach ($draugi as $vards => $vecums) {
+                echo $vards." ir " .$vecums. " gadus vecs.<br>";
+            }
         ?>
+
 
         <h4>7.uzdevums:</h4>
         <?php
