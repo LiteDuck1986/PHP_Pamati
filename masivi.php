@@ -106,7 +106,20 @@
 
         <h4>5.uzdevums:</h4>
         <?php
-            $augusts
+            $augusts = array();
+
+            for ($i = 0; $i < 10; $i++) {
+                $augusts[] = rand(15, 30); // 15–30°C
+            }
+
+            // no lielākās uz mazāko
+            rsort($augusts);
+
+            echo "Augusta augstākās temperatūras:<br>";
+
+            foreach ($augusts as $temp) {
+                echo $temp . "°C<br>";
+            }
         ?>
 
         <h4>6.uzdevums:</h4>
