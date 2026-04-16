@@ -145,9 +145,62 @@
 
 
         <h4>7.uzdevums:</h4>
-        <?php
+            <?php
+                $apskates_objekti = array(
 
-        ?>
+                    array(
+                        "vieta" => "Sigulda",
+                        "nosaukums" => "Brauciens ar gaisa vagoniņu",
+                        "apraksts" => "brauciens ar vagoniņiem.",
+                        "attels" => "https://content.siguldaadventures.com/uploads/2020/07/Vagons1-1-1024x682.png",
+                        "saite" => "https://www.tourism.sigulda.lv"
+                    ),
+
+                    array(
+                        "vieta" => "Ventspils nov.",
+                        "nosaukums" => "Radioastronomijas centrs Irbenē",
+                        "apraksts" => "Radioastronomija Latvijā.",
+                        "attels" => "https://www.visitventspils.com/app/uploads/2022/08/Gunars-Putnins-2-1080x720.jpg",
+                        "saite" => "https://www.virac.eu"
+                    ),
+
+                    array(
+                        "vieta" => "Liepāja",
+                        "nosaukums" => "Ziemeļu forti",
+                        "apraksts" => "Forti, kas sargāja Liepājas pilsētu.",
+                        "attels" => "https://liepaja.travel/app/uploads/2019/02/maza_ziemelu_forti_127-dsc00987-karlisvolkovskisfoto-800x450.jpg",
+                        "saite" => "https://liepaja.travel/darit-un-redzet/ziemelu-forti/"
+                    ),
+
+                    array(
+                        "vieta" => "Liepāja",
+                        "nosaukums" => "Primula",
+                        "apraksts" => "Vieta kur iegadāties dzērienus un pārtiku.",
+                        "attels" => "https://photos.wikimapia.org/p/00/01/77/55/65_big.jpg",
+                        "saite" => "https://viss.lv/?p=95125"
+                    )
+
+                );
+
+            ?>
+
+        <div class="container-apskates">
+
+            <?php
+                foreach ($apskates_objekti as $objekts) {
+                    echo "<div class='attels'>";
+                    echo "<img src='". $objekts["attels"] ."'>";
+                    echo "<div class='saturs'>";
+                    echo "<div class='vieta'> <i class='fa-solid fa-location-dot'></i>". " " .$objekts["vieta"] ."</div>";
+                    echo "<h3>". $objekts["nosaukums"] ."</h3>";
+                    echo "<p>". $objekts["apraksts"] ."</p>";
+                    echo "<a class='poga' href='". $objekts["saite"] ."' target='_blank'>Uzzināt vairāk</a>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            ?>
+
+        </div>
         
     </main>
 </body>
