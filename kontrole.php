@@ -203,22 +203,22 @@
                     array(
                         "jautajums" => "Kurš ir garākais SDLC posms?",
                         "atbildes" => array("Plānošana", "Izstrāde", "Testēšana", "Uzturēšana"),
-                        "parieza" => 3 // pareizās atbildes indekss (0,1,2,3)
+                        "pareiza" => 3 // pareizās atbildes indekss (0,1,2,3)
                     ),
                     array(
                         "jautajums" => "Kā visbiežāk nosūta datus no formas?",
                         "atbildes" => array("Ar POST", "Ar GET", "Ar PUT", "Ar DELETE"),
-                        "parieza" => 0 // pareizās atbildes indekss (0,1,2,3)
+                        "pareiza" => 0 // pareizās atbildes indekss (0,1,2,3)
                     ),
                     array(
                         "jautajums" => "JavaScript ir tas pats, kas Java",
                         "atbildes" => array("Jā", "Nē"),
-                        "parieza" => 1 // pareizās atbildes indekss (0,1,2,3)
+                        "pareiza" => 1 // pareizās atbildes indekss (0,1,2,3)
                     ),
                     array(
                         "jautajums" => "Kuru tagu izmanto HTML dokumenta galvenē?",
                         "atbildes" => array("&lt;title&gt;", "&lt;header&gt;", "&lt;main&gt;", "&lt;div&gt;"),
-                        "parieza" => 0 // pareizās atbildes indekss (0,1,2,3)
+                        "pareiza" => 0 // pareizās atbildes indekss (0,1,2,3)
                     ),
                 );
 
@@ -226,7 +226,36 @@
             ?>
 
             <h3>Viktorīna:</h3>
-            <form action="POST">
+            <?php
+                if(isset($_POST["iesniegt"])):
+                    $punkti = 0;
+                    foreach($jautajumi as $i => $j){
+                        $atbilde = $_post["atbilde_".$i] ?? -1;
+                        if($atbilde == $j["pareiza"]){
+                            $punkti++;
+                        }
+                    }
+            ?>
+
+            <p>
+                <?php
+                    if($punkti == $kopa){
+                        echo "Super, ieguvi visus $punkti no $kopa punktiem!";
+                    }elseif($punkti >= $kopa/2){
+                        echo "labi, ieguvi visus $punkti no $kopa punktiem!";
+                    }else{
+                        echo "Mēģini vēlreiz! Ieguvi tikai $punkti no $kopa punktiem!";
+                    }
+                ?>
+            </p>
+            <br>
+            <a href="" class="btn">Mēģināt vēlreiz</a>
+
+            <?php
+                else:
+            ?>
+
+            <form method="POST">
                 <?php
                     foreach($jautajumi as $i => $j):
                 ?>
@@ -244,7 +273,12 @@
                     <?php endforeach; ?>
 
                 <?php endforeach; ?>
+
+                <br></br>
+                <button type="submit" name="iesniegt">Iesniegt</button>
             </form>
+
+            <?php endif; ?>
 
     </main>
 </body>
