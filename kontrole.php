@@ -217,7 +217,7 @@
                     ),
                     array(
                         "jautajums" => "Kuru tagu izmanto HTML dokumenta galvenē?",
-                        "atbildes" => array("<title>", "<header>", "<main>", "<div>"),
+                        "atbildes" => array("&lt;title&gt;", "&lt;header&gt;", "&lt;main&gt;", "&lt;div&gt;"),
                         "parieza" => 0 // pareizās atbildes indekss (0,1,2,3)
                     ),
                 );
@@ -231,7 +231,17 @@
                     foreach($jautajumi as $i => $j):
                 ?>
 
-                <h4><?= $j ?></h4>
+                <h4><?= ($i+1). ". ".$j["jautajums"]; ?></h4>
+
+                <?php
+                    foreach($j["atbildes"] as $atbilde_i => $atbilde):
+                ?>
+                    <label>
+                        <input type="radio" name="atbilde_<?=$i; ?>" value="<?= $atbilde_i; ?>">
+                        <?= $atbilde; ?>
+                    </label>
+
+                    <?php endforeach; ?>
 
                 <?php endforeach; ?>
             </form>
