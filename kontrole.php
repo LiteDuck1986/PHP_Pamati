@@ -197,6 +197,41 @@
                 </p>
 
             </form>
+
+            <?php
+                $jautajumi = array(
+                    array(
+                        "jautajums" => "Kurš ir garākais SDLC posms?",
+                        "atbildes" => array("Plānošana", "Izstrāde", "Testēšana", "Uzturēšana"),
+                        "parieza" => 3 // pareizās atbildes indekss (0,1,2,3)
+                    ),
+                    array(
+                        "jautajums" => "Kā visbiežāk nosūta datus no formas?",
+                        "atbildes" => array("Ar POST", "Ar GET", "Ar PUT", "Ar DELETE"),
+                        "parieza" => 0 // pareizās atbildes indekss (0,1,2,3)
+                    ),
+                    array(
+                        "jautajums" => "JavaScript ir tas pats, kas Java",
+                        "atbildes" => array("Jā", "Nē"),
+                        "parieza" => 1 // pareizās atbildes indekss (0,1,2,3)
+                    ),
+                    array(
+                        "jautajums" => "Kuru tagu izmanto HTML dokumenta galvenē?",
+                        "atbildes" => array("<title>", "<header>", "<main>", "<div>"),
+                        "parieza" => 0 // pareizās atbildes indekss (0,1,2,3)
+                    ),
+                );
+
+                $kopa = count($jautajumi);
+            ?>
+
+            <h3>Viktorīna:</h3>
+            <form action="POST">
+                <?php
+                    foreach($jautajumi as $i)
+                ?>
+            </form>
+
     </main>
 </body>
 </html>
