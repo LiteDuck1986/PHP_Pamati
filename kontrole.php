@@ -228,8 +228,12 @@
             <h3>Viktorīna:</h3>
             <form action="POST">
                 <?php
-                    foreach($jautajumi as $i)
+                    foreach($jautajumi as $i => $j):
                 ?>
+
+                <h4><?= $j ?></h4>
+
+                <?php endforeach; ?>
             </form>
 
     </main>

@@ -121,34 +121,47 @@
 
         <h3>Šifrē un atšifrē:</h3>
         <form method="POST">
-                <input type="text" maxlength="10" name="sifrs" required>
-                <button type="submit" name="sifret">Šifrēt</button>
-        </form>
+                <input type="text" maxlength="1000" name="sifresana">
+                <button type="submit" name="encrypt">Šašifrēt</button>
+                <p>
+                    <?php
+                        if(isset($_POST["encrypt"])){ 
+                            $lietotaja_teksts = $_POST["sifresana"];
 
-        <form>
-            <button type="" name="atsifret">Atšifrēt</button>
-        </form>
+                            if(empty($lietotaja_teksts)){
+                                echo "Ievadlauks ir tukšs";
+                            } elseif(!isset($lietotaja_teksts)) {
+                                echo "Urķi, tinies prom! :@";
+                            } else {
+                                $lietotaja_sifrets_teksts = openssl_encrypt($lietotaja_teksts, "AES-128-ECB", $atslega);
+                                echo $lietotaja_sifrets_teksts;
+                            }
+                        }
+                    ?>
+                </p>
+</form>
 
-        <?php
-            $nesifrets_t = "2PT ir laba grupa! :)";
-            $atslega = "Shi!Ir!Ljoti!Laba!Atslega@123";
 
-            $sifrets_teksts = openssl_encrypt($nesifrets_t, "AES-128-ECB", $atslega);
-            $atsifrets_teksts = openssl_decrypt($sifrets_teksts, "AES-128-ECB", $atslega);
+         <form method="POST">
+                <input type="text" maxlength="1000" name="atsifresana">
+                <button type="submit" name="decrypt">Atšifrēt</button>
+                <p>
+                    <?php
+                        if(isset($_POST["decrypt"])){ 
+                            $lietotaja_atsif_ievadteksts = $_POST["atsifresana"];
 
-            if(isset($_POST["sifret"])){ // pārbauda vai poga ir nospiesta
-                $atslega = $_POST["sifrs"];
-                echo "<p>Teksta šifrs: <b>$sifrets_teksts</b></p>";
-            }
-
-            if(isset($_POST["sifret"])){ // pārbauda vai poga ir nospiesta
-                $atslega = $_POST["atsifret"];
-                echo "<p>Atšifrēts teksts: <b>$atsifrets_teksts</b></p>";
-            }
-
-            // echo "<p>Teksta šifrs: <b>$sifrets_teksts</b></p>";
-            // echo "<p>Atšifrēts teksts: <b>$atsifrets_teksts</b></p>";
-        ?>
+                            if(empty($lietotaja_atsif_ievadteksts)){
+                                echo "Ievadlauks ir tukšs";
+                            } elseif(!isset($lietotaja_atsif_ievadteksts)) {
+                                echo "Nemēģini."; 
+                            } else {
+                                $lietotaja_atsifretais_teksts = openssl_decrypt($lietotaja_atsif_ievadteksts, "AES-128-ECB", $atslega);
+                                echo $lietotaja_atsifretais_teksts;
+                            }
+                        }
+                    ?>
+                </p>
+            </form>
 
     </main>
 </body>
