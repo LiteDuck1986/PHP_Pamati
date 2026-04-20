@@ -47,9 +47,31 @@
                 }
             ?>
         </form>
+        
+        <h3>Funkcija, speciālā vietā apmaina vārdus:</h3>
         <?php
-
+            function apmainaVardu($masivs2){
+                $inputVards = $masivs;
+                $inputVieta = 
+                $text = "VARDS Gāja uz VIETA, patusēt ar saviem draugiem.";
+                $output = str_replace(["VARDS", "VIETA"], [$inputVards, $inputVieta], $text);
+                return $output;
+            }
         ?>
+        <P>Ievadi skaitļus savstarpēji tos atdalot ar komatu:</P>
+        <form method="POST">
+            <input type="text" name="vards">
+            <input type="text" name="vieta">
+            <button type="submit" name="apmainit">Apmainīt</button>
+            <?php
+                if(isset($_POST["apmainit"])){
+                    $input = $_POST["vards"];
+                    $masivs = explode(',', $skaitli);
+                    $rezultats = vid_aritm($masivs);
+                    echo "<p>Vidējais aritmētiskais ir <b>$rezultats<b></p>";
+                }
+            ?>
+        </form>
         
     </main>
 </body>
