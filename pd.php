@@ -11,6 +11,9 @@
             function saskaitit($skaitlis1, $skaitlis2){
                 return $skaitlis1 + $skaitlis2;
             }
+            function atbemt($skaitlis1, $skaitlis2){
+                return $skaitlis1 - $skaitlis2;
+            }
         ?>
         <P>Veic matemātisko aprēķinu atkarībā no atlasītās darbības:</P>
         <form method="POST">
@@ -54,6 +57,10 @@
                     }
                     elseif($skaitlis1 <= 0 || $skaitlis2 <= 0){
                         echo "<p style='color:red;'>Skaitļiem jābūt lielākiem par 0!</p>";
+                    }
+                    elseif($pamatdarbiba == "+"){
+                        $rezultats = atnemt($skaitlis1, $skaitlis2);
+                        echo "<p>Rezultāts <b>$rezultats</b></p>";
                     }
                     else{
                         $rezultats = saskaitit($skaitlis1, $skaitlis2);
